@@ -278,7 +278,7 @@ Clone GitHub [repository](https://github.com/ultralytics/yolov5), install [depen
 import torch
 import utils
 display = utils.notebook_init() # checks
-```
+'''
 
 --- 
 5. **Configure 'coco128.yaml'**:
@@ -311,7 +311,7 @@ names:
    
 # Download script/URL (optional)
 Download: https://ultralytics.com/assets/coco128.zip
-```
+'''
 <p></p>
 <p></p>
 <p></p>
@@ -424,7 +424,7 @@ Collect and label a set of images to train and validate the model.
    
 '''Bash
 !unzip -q /content/data.zip -d /content/f greeting():
-```
+'''
 <p></p>
 <p></p>
 <img src="images/14.png" width="600" height="400">
@@ -451,7 +451,7 @@ Train the YOLOv5 network with the prepared dataset.
     
 '''python
 !python train.py --img 640 --batch 4 --epochs 50 --data /content/yolov5/data/custom.yaml --weights yolov5x.pt --cache
-```
+'''
 2. **Describe the training parameters**: 
 
 - !python train.py: This command executes the train.py script using Python. The ! is specific to Jupyter notebooks (such as Google Colab), and is used to execute shell commands.
@@ -654,7 +654,7 @@ comet upload /content/yolov5/.cometml-runs/e2d1e2a7ae8e4dbb91f1a666802d5448.zip<
 '''Bash
 %load_ext tensorboard
 %tensorboard --logdir runs
-```
+'''
 ---
 
 ---
@@ -668,7 +668,7 @@ comet upload /content/yolov5/.cometml-runs/e2d1e2a7ae8e4dbb91f1a666802d5448.zip<
 '''Bash
 from google.colab import files
 files.download('./runs/train/exp/weights/best.pt')
-```
+'''
 ---
 
 --- 
@@ -683,12 +683,12 @@ Develop an application or interface to demonstrate the functionality of the mode
 - Install PyTorch >= 1.8
 '''Bash
 pip install torch==1.8
-```
+'''
 
 2. **Create a Python Virtual Environment**:
 '''Bash
 Python -m VENV Detection
-```
+'''
 <p></p>
 <img src="images/25.png" width="600" height="400">
 <p></p>
@@ -697,7 +697,7 @@ Python -m VENV Detection
 3. **Activate the Virtual Environment**: 
 '''Bash
 Activate
-```
+'''
 <p></p>
 <img src="images/26.png" width="600" height="400">
 <p></p>
@@ -706,7 +706,7 @@ Activate
     
 '''Bash 
 pip install -r https://raw.githubusercontent.com/ultralytics/yolov5/master/requirements.txt
-```
+'''
      
 -Requirements: 
  - Install [Pytorch Requirements](https://docs.ultralytics.com/yolov5/tutorials/pytorch_hub_model_loading/).
@@ -723,7 +723,7 @@ pip install -r https://raw.githubusercontent.com/ultralytics/yolov5/master/requi
     
 '''Bash 
 pip install daal==2021.4.0
-```
+'''
 4. **Create Object Detection Script**: 
 
 - The script will detect.py load a trained model of YOLOv5 and activate the camera for object detection.
@@ -731,7 +731,8 @@ pip install daal==2021.4.0
 - detect.py Source Code
     
      
-'''python
+''' python
+
 # Import of necessary libraries
 import torch # Import PyTorch, used for neural network operations
 import cv2 # Import OpenCV for image manipulation and processing
@@ -785,12 +786,12 @@ break
 # cv2.destroyAllWindows() closes all windows opened by OpenCV.
 cap.release()
 cv2.destroyAllWindows()
-```
+'''
 
  4. **Run Script**:
 '''Bash 
 python detect.py
-```
+'''
 <p></p>
 <img src="images/29.png" width="600" height="400">
 <p></p>
