@@ -730,9 +730,6 @@ pip install daal==2021.4.0
 
 - detect.py Source Code
     
-     
-''' python
-
 # Import of necessary libraries
 import torch # Import PyTorch, used for neural network operations
 import cv2 # Import OpenCV for image manipulation and processing
@@ -784,6 +781,8 @@ break
 # Release the camera and close all windows
 # cap.release() releases the camera resource.
 # cv2.destroyAllWindows() closes all windows opened by OpenCV.
+
+'''
 cap.release()
 cv2.destroyAllWindows()
 '''
