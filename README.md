@@ -270,7 +270,7 @@ Clone GitHub [repository](https://github.com/ultralytics/yolov5), install [depen
 
 ---
 
-'''python
+```python
 !git clone https://github.com/ultralytics/yolov5 #clone
 %cd yolov5
 %pip install -qr requirements.txt comet_ml # install
@@ -278,7 +278,7 @@ Clone GitHub [repository](https://github.com/ultralytics/yolov5), install [depen
 import torch
 import utils
 display = utils.notebook_init() # checks
-'''
+```
 
 --- 
 5. **Configure 'coco128.yaml'**:
@@ -299,7 +299,7 @@ display = utils.notebook_init() # checks
 - Make necessary changes, such as adjusting the paths of the training data 
 - Modify the data classes to be labeled.
    
-'''yaml
+```yaml
 train: /content/data/images/train # training image path
 val: /content/data/images/val # validation image path
 test: # test images (optional)
@@ -311,7 +311,7 @@ names:
    
 # Download script/URL (optional)
 Download: https://ultralytics.com/assets/coco128.zip
-'''
+```
 <p></p>
 <p></p>
 <p></p>
@@ -422,9 +422,9 @@ Collect and label a set of images to train and validate the model.
 4. **Unzip the data with the following command**:
 <p></p>
    
-''' bash
+```bash
 !unzip -q /content/data.zip -d /content/f greeting():
-
+```
 <p></p>
 <p></p>
 <img src="images/14.png" width="600" height="400">
@@ -449,9 +449,9 @@ Train the YOLOv5 network with the prepared dataset.
 <img src="images/15.png" width="600" height="400">
 <p></p>
     
-'''python
+```python
 !python train.py --img 640 --batch 4 --epochs 50 --data /content/yolov5/data/custom.yaml --weights yolov5x.pt --cache
-
+```
 2. **Describe the training parameters**: 
 
 - !python train.py: This command executes the train.py script using Python. The ! is specific to Jupyter notebooks (such as Google Colab), and is used to execute shell commands.
@@ -651,10 +651,10 @@ comet upload /content/yolov5/.cometml-runs/e2d1e2a7ae8e4dbb91f1a666802d5448.zip<
 <img src="images/visualizar.png" width="600" height="400">
 <p></p>
     
-''' bash
+```bash
 %load_ext tensorboard
 %tensorboard --logdir runs
-
+```
 ---
 
 ---
@@ -665,10 +665,10 @@ comet upload /content/yolov5/.cometml-runs/e2d1e2a7ae8e4dbb91f1a666802d5448.zip<
 <img src="images/24.png" width="600" height="400">
 <p></p>
     
-''' bash
+```bash
 from google.colab import files
 files.download('./runs/train/exp/weights/best.pt')
-
+```
 ---
 
 --- 
@@ -681,32 +681,32 @@ Develop an application or interface to demonstrate the functionality of the mode
 -Requirements: 
  - Install [Python == 3.9](https://www.python.org/downloads/release/python-3917/).
 - Install PyTorch >= 1.8
-''' bash
+```bash
 pip install torch==1.8
-
+```
 
 2. **Create a Python Virtual Environment**:
-''' bash
+```bash
 Python -m VENV Detection
-
+```
 <p></p>
 <img src="images/25.png" width="600" height="400">
 <p></p>
       
    
 3. **Activate the Virtual Environment**: 
-''' bash
+```bash
 Activate
-
+```
 <p></p>
 <img src="images/26.png" width="600" height="400">
 <p></p>
       
 2. **Install Pytorch requirements**: 
     
-''' bash 
+```bash
 pip install -r https://raw.githubusercontent.com/ultralytics/yolov5/master/requirements.txt
-
+```
      
 -Requirements: 
  - Install [Pytorch Requirements](https://docs.ultralytics.com/yolov5/tutorials/pytorch_hub_model_loading/).
@@ -721,9 +721,9 @@ pip install -r https://raw.githubusercontent.com/ultralytics/yolov5/master/requi
     
 - It is possible to give an error in the libraries so it is suggested to install
     
-''' bash 
+```bash
 pip install daal==2021.4.0
-
+```
 
 #### **Create Object Detection Script**: 
 
@@ -784,15 +784,15 @@ break
 #### cap.release() releases the camera resource.
 #### cv2.destroyAllWindows() closes all windows opened by OpenCV.
 
-''' bash
+```bash
 cap.release()
 cv2.destroyAllWindows()
-
+```
 
  4. **Run Script**:
-''' bash 
+```bash
 python detect.py
-
+```
 <p></p>
 <img src="images/29.png" width="600" height="400">
 <p></p>
