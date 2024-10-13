@@ -717,7 +717,7 @@ pip install -r https://raw.githubusercontent.com/ultralytics/yolov5/master/requi
 <img src="images/28.png" width="600" height="400">
 <p></p>
      
-#### 3. **Possible error**: 
+3. **Possible error**: 
     
 - It is possible to give an error in the libraries so it is suggested to install
     
@@ -725,68 +725,78 @@ pip install -r https://raw.githubusercontent.com/ultralytics/yolov5/master/requi
 pip install daal==2021.4.0
 ```
 
-#### **Create Object Detection Script**: 
+**Create Object Detection Script**: 
 
 - The script will detect.py load a trained model of YOLOv5 and activate the camera for object detection.
 
 - detect.py Source Code
     
-#### Import of necessary libraries
+Import of necessary libraries
+```python
 import torch # Import PyTorch, used for neural network operations
 import cv2 # Import OpenCV for image manipulation and processing
 import numpy as np # Import NumPy for array/array management
+```
+Load the model from YOLOv5
 
-#### Load the model from YOLOv5
-torch.hub.load loads a YOLOv5 model from the Ultralytics URL.
+- torch.hub.load loads a YOLOv5 model from the Ultralytics URL.
 
-#### The 'custom' model and the file path of the pre-trained model are specified.
-model = torch.hub.load('ultralytics/yolov5', 'custom', path='D:/YOLO/Proyecto_Final/environment/Scripts/model/model2.pt')
+The 'custom' model and the file path of the pre-trained model are specified.
+- model = torch.hub.load('ultralytics/yolov5', 'custom', path='D:/YOLO/Proyecto_Final/environment/Scripts/model/model2.pt')
 
-#### Start video capture from webcam
-#### CV2. VideoCapture(0) launches the default webcam on the system.
+Start video capture from webcam
+```bash
+CV2. VideoCapture(0) launches the default webcam on the system.
 cap = cv2. VideoCapture(0)
+```
 
-##### Loop for continuous capture and detection
+Loop for continuous capture and detection
+```python
 while True:
-#### cap.read() captures a frame of the webcam.
-#### 'ret' is a boolean that indicates whether the frame was captured correctly.
-#### 'frame' is the captured frame.
+cap.read() captures a frame of the webcam.
+'ret' is a boolean that indicates whether the frame was captured correctly.
+'frame' is the captured frame.
 ret, frame = cap.read()
+```
 
-##### If the frame is not captured correctly, it displays an error message and continues
+If the frame is not captured correctly, it displays an error message and continues
+```python
 if not ret:
 print("Error capturing camera frame")
 continue
+```
 
-#### Perform detection on the captured frame
-#### The model processes the frame and returns the detections.
+Perform detection on the captured frame
+The model processes the frame and returns the detections.
+```python
 detect = model(frame)
-
-#### Get and display detection information
-#### detect.pandas().xyxy[0] converts the results into a Pandas DataFrame.
+Get and display detection information
+detect.pandas().xyxy[0] converts the results into a Pandas DataFrame.
 info = detect.pandas().xyxy[0]
 print(info)
+```
 
-#### Show the frame with detections
-#### cv2.imshow shows the window with the frame.
-#### np.squeeze removes unit dimensions from the array.
-#### detect.render() returns the frame with the drawn detections.
+Show the frame with detections
+```python
+cv2.imshow shows the window with the frame.
+np.squeeze removes unit dimensions from the array.
+detect.render() returns the frame with the drawn detections.
 cv2.imshow('Car Detector', np.squeeze(detect.render()))
+```
 
-#### Wait for a key to be pressed to interrupt
-#### cv2.waitKey(5) waits 5 milliseconds.
-#### If the 'Esc' key (ASCII code 27) is pressed, the loop breaks.
+Wait for a key to be pressed to interrupt
+```python
+cv2.waitKey(5) waits 5 milliseconds.
+If the 'Esc' key (ASCII code 27) is pressed, the loop breaks.
 t = cv2.waitKey(5)
 if t == 27:
 break
+```
 
-#### Release the camera and close all windows
-#### cap.release() releases the camera resource.
-#### cv2.destroyAllWindows() closes all windows opened by OpenCV.
-
+Release the camera and close all windows
 ```bash
-cap.release()
-cv2.destroyAllWindows()
+cap.release() releases the camera resource.
+cv2.destroyAllWindows() closes all windows opened by OpenCV.
 ```
 
  4. **Run Script**:
